@@ -9,7 +9,7 @@ import serial
 
 
 def upload(temperature, humidity, UV_value, light_value):
-        params = urllib.urlencode({'field1': temperature, 'field2': humidity, 'field3': UV_value, 'field4': light_value, 'key':'Y1JUZC930YOKH5JA'})
+        params = urllib.urlencode({'field1': temperature, 'field2': humidity, 'field3': UV_value, 'field4': light_value, 'key':'M108RN6TTVSB0QEB'})
         
         headers = {"Content-type": "application/x-www-form-urlencoded","Accept": "text/plain"}
         conn = httplib.HTTPConnection("api.thingspeak.com:80")
@@ -20,7 +20,7 @@ def upload(temperature, humidity, UV_value, light_value):
         conn.close()
 
 def WriteFile(current_weather):
-    fp = open("~/Desktop/data.txt", 'a')
+    fp = open('/home/oxygen/Desktop/NHWS/data.txt','a')
     fp.write(current_weather)    
     fp.close()
     
@@ -32,7 +32,7 @@ def GetAnalogIndex():
     try:
         while True:
         #print 'RPi is sending request to arduino'
-            print ('connecting to MCU...')
+            print ('connecting to Arduino...')
             ser.write('L')
             response1 = ser.readline()
             ser.write('U')
